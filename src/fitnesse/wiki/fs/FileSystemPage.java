@@ -256,12 +256,6 @@ public class FileSystemPage extends BaseWikitextPage implements FileBasedWikiPag
         content += separator;
       }
 
-      //First replace every windows style to unix
-      content = content.replaceAll("\r\n", "\n");
-      //Then do the replace to match the OS.  This works around
-      //a strange behavior on windows.
-      content = content.replaceAll("\n", separator);
-
       return new ByteArrayInputStream(content.getBytes(FileUtil.CHARENCODING));
     }
 
